@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COVAI CART</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>COVAI CART</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="products">
+    <div class="product-card">
+      <img src="istockphoto-517495506-612x612.jpg" alt="Soap">
+      <h2>Herbal Soap</h2>
+      <p>Rs.100</p>
+      <button onclick="addToCart('Herbal Soap', 100)">Add to Cart</button>
+    </div>
+    <!-- Add more product-cards here -->
+  </section>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
+</body>
+</html>
